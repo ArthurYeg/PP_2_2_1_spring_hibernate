@@ -22,10 +22,10 @@ public class MainApp {
        User masha = new User("Masha", "Korolyova", "masha@mail.ru");
 
 
-       Car mercedes = new Car(235, "Mercedes");
-       Car volga = new Car(562, "Volga");
-       Car opel = new Car(254, "Opel");
-       Car reno = new Car(965, "Reno");
+       Car mercedes = new Car("Mercedes",235);
+       Car volga = new Car("Volga",562);
+       Car opel = new Car("Opel",254);
+       Car reno = new Car("Reno",965);
 
        artyom.setCar(mercedes);
        mercedes.setUser(artyom);
@@ -50,6 +50,6 @@ public class MainApp {
            System.out.println("Car = " + user.getCar());
            System.out.println();
        }
-       System.out.println(userService.getUserByCarId("Mercedes", 235).getFirstName());
+//       System.out.println(userService.getUserByCarId("Mercedes", 235).getFirstName());
        context.close();
    }}

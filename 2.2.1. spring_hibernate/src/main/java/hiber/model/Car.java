@@ -7,22 +7,23 @@ import java.io.Serializable;
 @Table(name = "cars")
 public class Car implements Serializable {
 
+    @Id
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
     @Column(name = "series")
     private int series;
 
     @Column(name = "model")
     private String model;
 
-    @Id
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
 
     public Car() {
 
     }
 
-    public Car(int series, String model) {
+    public Car(String model,int series) {
         this.series = series;
         this.model = model;
     }
