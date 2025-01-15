@@ -10,12 +10,13 @@ import java.util.List;
 
 @Service
 public class UserServiceImp implements UserService {
-
    @Autowired
    private UserDao userDao;
-public UserServiceImp(UserDao userDao){
-   this.userDao=userDao;
-}
+
+   public UserServiceImp(UserDao userDao){
+      this.userDao = userDao;
+   }
+
    @Transactional
    @Override
    public void add(User user) {
@@ -25,11 +26,12 @@ public UserServiceImp(UserDao userDao){
    @Transactional(readOnly = true)
    @Override
    public List<User> listUsers() {
-      return userDao.listUsers();
+      return userDao.listUsers(); // Теперь использует JOIN FETCH
    }
-@Transactional(readOnly = true)
+
+   @Transactional(readOnly = true)
    @Override
    public User getUserByCarId(String model, int series) {
-      return userDao.getUserByCarId(model, series);
+      return userDao.getUserByCarId(model, series); // Теперь использует JOIN FETCH
    }
 }
